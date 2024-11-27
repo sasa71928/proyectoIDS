@@ -1,0 +1,389 @@
+body {
+    font-family: Fira Sans, Arial, Helvetica, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+header {
+    background-color: white; 
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.logo {
+    height: 70px; /*Al tratarse de una imagen que queremos que se vea igual siempre, ponemos la dimensión en pixeles*/
+    display: flex;
+    padding-left: 10px;
+}
+
+.logo-image { /*Se le dan dimensiones y espacios para que se vea mejor en el contenedor.*/
+    align-self: center;
+    height: 60%;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+}
+
+ul li {
+    display: inline-block;
+    padding: 20px;
+}
+
+ul li:hover a{
+    color: #2D6FA4;
+}
+
+a {
+    text-decoration: none; /*Quitamos el subrayado de los enlaces (Ojo: Mala práctica para accesibilidad, pero muestro el ejemplo de que se puede hacer)*/
+}
+
+.navigation-link {
+    color: black; 
+    margin-left: 20px; 
+    font-weight: bold;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 250px;
+    z-index: 90;
+    top: 90%;
+    padding: 0;
+    box-shadow: 2px 2px 5px 0 gray;
+    border-radius: 5px;
+}
+
+li:hover .submenu{
+    display: block;
+}
+
+.submenu li {
+    text-align: left;
+    padding: 0;
+    display: block;
+    padding: 10px;
+}
+
+.submenu li:hover {
+    background: rgb(230, 229, 229);
+}
+
+
+.hero-container {
+    width: 100%;
+    display: flex;
+    min-height: 400px;
+    background: #2D6FA4;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    flex: 0 1 40%;
+    text-align: center;
+    justify-content: center;
+}
+
+.hero-content h2 {
+    font-size: 4em;
+    margin: 0;
+    padding: 0 25px;
+}
+
+.hero-content p {
+    font-size: 2em;
+}
+
+.hero-content button {
+    background: #D71F27;
+    min-width: 150px;
+    min-height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.hero-content button:hover {
+    background: #ba1b23;
+    cursor: pointer;
+}
+
+.hero-img {
+    display: flex;
+}
+
+.hero-img img {
+    align-self: center;
+    height: 80%;
+}
+
+.mission-vision-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.mission-vision-card {
+    display: flex;
+    justify-content: column;
+    width: 30%;
+    min-width: 300px;
+    flex-wrap: wrap;
+    background: #D8DDDE;
+    border-radius: 10px;
+    margin-top: 35px;
+}
+
+.mission-vision-card-title {
+    background: #ABA194;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.mission-vision-card-content {
+    background: #D8DDDE;
+    padding: 20px;
+    margin: 0;
+    text-align: justify;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.h1-table {
+    display: inline-block;
+    padding: 1%;
+}
+
+.table-container {
+    width: calc(100% - 40px);
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.table-container-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4A90E2;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions a {
+    background-color: #4A90E2;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.actions a:hover {
+    background-color: #357ABD;
+}
+
+.add-button {
+    background-color: #28a745;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 20px;
+    display: inline-block;
+    align-self: flex-end;
+    text-align: center;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 2% auto;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.form-group select {
+    height: 40px;
+}
+
+.form-group button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-family: 'Fira Sans', 'Arial', sans-serif;
+}
+
+.form-group button:hover {
+    background-color: #357ABD;
+}
+
+.form-group .submit-button {
+    background-color: #28a745;
+}
+
+.form-group .submit-button:hover {
+    background-color: #218838;
+}
+
+.form-group a {
+    background-color: #ddd;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin: 0 0 0 2%;
+}
+
+.form-group a:hover {
+    background-color: #c0bdbd;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #4A90E2;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+
+.form-footer a {
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+form .success {
+    color: #218838;
+    text-align: right;
+}
+
+form .error {
+    color: #ba1b23;
+    text-align: right;
+}
