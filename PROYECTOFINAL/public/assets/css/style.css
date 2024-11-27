@@ -1,0 +1,214 @@
+:root{
+    --colorprincipal: #339989;
+    --colorsecundario: #7DE2D1;
+    --colornegro: #131515;
+    --colorblanco: #FFFAFB;
+    --colorgris: #2B2C28;
+    --colorprimario:#C3DAC3;
+    --colorsegund: #D5ECD4;
+    --colorterc: #A1B0AB;
+    --color4t: #929487;
+}
+
+.protest-strike-regular {
+    font-family: "Protest Strike", sans-serif;
+    font-style: normal;
+  }
+  
+.container{
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.imagen-back{
+    height: 100%;
+    width: 100%;
+    margin: 1px;
+    size-adjust: cover;
+}
+
+body{
+    background-color: var(--colorprimario);
+    margin: 0%;
+    padding: 0%;
+}
+
+.marcado{
+    background-color: var(--colorsecundario); 
+    padding: 1%; 
+    border: 10px solid var(--colorsecundario); 
+    border-style:groove 
+
+}
+
+header{
+    background:linear-gradient(to right, #C3DAC3 ,#929487);
+    font-family: sans-serif;
+    position: sticky;
+    top: 0;
+}
+
+.box{
+    display: inline-block;
+    margin: 0;
+    padding: 1%;
+    vertical-align: top;
+    color: var(--colornegro);
+    font-size: initial;
+}
+
+.logo{
+    width: 20%;
+    height: 68px;
+    padding: 0 0 0 10px;
+}
+
+.imagen{
+    margin-top: 2%;
+    height: 80%;
+}
+
+.imagen-flex{
+    width: 100%;
+    height: 70%;
+    padding: 0%;
+    object-fit: cover;
+    border-radius: 2%;
+}
+
+.vdc{
+    width: 20%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 40px; 
+    margin: 0 auto;
+    font-family: "Protest Strike", sans-serif;
+    font-style: normal;   
+}
+
+
+.nav{
+    text-align: right;
+    line-height: 40px;
+    padding: 1%;
+    align-items: center;
+    width: 35%;
+    margin-left: 16%;
+    font-family: "Protest Strike", sans-serif;
+    font-style: normal;
+    
+}
+
+.link{
+    color: var(--colorblanco);
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+form{
+    margin: 2% auto;
+    max-width: 250px;
+    height: 400px;
+    background-color: var(--colorprimario);
+    border-radius: 2%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    border: 2px solid var(--color4t);
+}
+
+h2{
+    text-align: left;
+    color: var(--colornegro);
+    display: block;
+    margin-bottom: 10px;
+    padding-left: 3%;
+    font-family: "Protest Strike", sans-serif;
+}
+
+h1{
+    text-align: Center;
+    color: var(--colornegro);
+    display: block;
+    font-family: "Protest Strike", sans-serif;
+    font-size: 80px;
+}
+
+input, textarea, select{
+    width: 100%;
+    margin-bottom: 20px;
+    border: 5px solid var(--colornegro);
+    border-style: groove;
+    box-sizing: border-box;
+    padding: 1%;
+    font-size: 18px;
+}
+
+label{
+    color: var(--color4t);
+    display: block;
+    margin-bottom: 2%;
+    text-align: left;
+    font-size: 18px;
+    padding-left: 3%;
+}
+
+button{
+    width: 10%;
+    background-color: var(--colorterc);
+    font-size: 100px;
+    font-family: "Protest Strike", sans-serif;
+    color:var(--colorblanco);
+    padding: 1%;
+    border: 2px solid var(--colorsegund);
+    border-radius: 17px;
+    cursor: pointer; 
+    font-size: 16px; 
+    display: block;
+    margin: 2% auto;
+}
+
+option{
+    background-color: var(--colorsecundario);
+}
+
+button:active{
+    background-color: var(--color4t);
+}
+
+form:hover{
+    box-shadow: 0px 8px 16px var(--colorblanco);
+    cursor: pointer;
+
+}
+
+h3{
+    color: var(--colornegro);
+    font-family: "Protest Strike", sans-serif;
+}
+
+.img-biblio{
+    width: 250px;
+    height: 250px;
+}
+
+.img-biblio:hover{
+    box-shadow: 0px 16px 32px var(--colorblanco);
+    cursor: pointer;
+}
+
+@media (min-width: 481px){
+    nav{
+        font-size: small;
+    }
+}
+
+b{
+    font-family: "Protest Strike", sans-serif;
+}
+
+p{
+    text-align: center;
+}
