@@ -1,11 +1,11 @@
 <?php 
     include_once __DIR__.'/../../layouts/header.php';
     require_once __DIR__ . '/../../../helpers/auth.php';
-    require __DIR__.'/../../../controllers/careerController.php';
+    require __DIR__.'/../../../controllers/CareerController.php';
     
     $title = 'Añadir';
     $career = null;
-    $route = SRC_URL.'/controllers/careerController.php';
+    $route = SRC_URL.'/controllers/CareerController.php';
 
     if(isset($_GET['career_id'])){
         $title = 'Editar';

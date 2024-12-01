@@ -1,29 +1,27 @@
 <?php
 
-define('URL', '/programacion-web/programacion-web-2024/24_php_crud/public');
-
 $request = $_SERVER['REQUEST_URI'];
 
 $request = strtok($request, '?');
 
 switch($request){
-    case URL.'/':
+    case '/':
         require_once __DIR__.'/../src/views/public/welcome.php';
         break;
-    case URL.'/carreras':
+    case '/carreras':
         require_once __DIR__.'/../src/views/public/careers/details.php';
         break;
-    case URL.'/careers':
+    case '/careers':
         require_once __DIR__.'/../src/views/admin/careers/index.php';
         break;
-    case URL.'/careers/form':
+    case '/careers/form':
         require_once __DIR__.'/../src/views/admin/careers/form.php';
         break;
-    case URL.'/login':
+    case '/login':
         require_once __DIR__.'/login.php';
         break;
-    case URL.'/logout':
-        require_once __DIR__.'/../src/controllers/logoutController.php';
+    case '/logout':
+        require_once __DIR__.'/../src/controllers/LogoutController.php';
         break;
     default:
         http_response_code(404);

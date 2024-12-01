@@ -1,13 +1,13 @@
 <?php 
 
 return [
-    'base_url' => 'http://localhost:81/programacion-web/programacion-web-2024/24_php_crud/public',
-    'assets_url' => 'http://localhost:81/programacion-web/programacion-web-2024/24_php_crud/public/assets',
-    'src_url' => 'http://localhost:81/programacion-web/programacion-web-2024/24_php_crud/src',
+    'base_url' => 'https://prueba.blarauabcs.great-site.net',
+    'assets_url' => 'https://prueba.blarauabcs.great-site.net/public/assets',
+    'src_url' => 'https://prueba.blarauabcs.great-site.net/src',
     'db' => [
-        'host' => '127.0.0.1',
-        'name' => 'programacion_web',
-        'user' => 'root',
-        'password' => ''
+        'host' => 'sql107.infinityfree.com',
+        'name' => 'if0_37654662_progra_web',
+        'user' => 'if0_37654662',
+        'password' => 'O1vU47I6Gw6Z3h'
     ]
 ];
