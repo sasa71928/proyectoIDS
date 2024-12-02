@@ -14,7 +14,7 @@
 <body style="font-family: sans-serif;">
     <header>
         <div class="box logo">
-            <img class="imagen" src="img/vinyl.png">
+        <img class="imagen" src="<?= ASSETS_URL ?>/img/vinyl.png" alt="Vinyl">
         </div>
         <div class="box vdc">
             V.D.C.

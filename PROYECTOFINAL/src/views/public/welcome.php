@@ -1,8 +1,8 @@
-<?php include_once __DIR__.'/../layouts/header.php'; ?>
+<?php include_once __DIR__.'/../layouts/header.php';?>
 
 <main>
     <div class="container">
-        <img class="imagen-back" src="img/fende.jpg">
+        <img class="imagen-back" src="<?= ASSETS_URL ?>/img/fende.jpg" alt="Vinyl">
     </div>
     
     <div>
