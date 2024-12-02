@@ -20,8 +20,8 @@
             V.D.C.
         </div>
         <nav class="box nav">
-            <a class="link" href="#">Perfil</a>
-            <a class="link" href="../Ejercicio_Final/Biblioteca.html">Biblioteca</a>
+            <a class="link" href="<?=BASE_URL?>/login">Perfil</a>
+            <a class="link" href="#">Biblioteca</a>
             <a class="link" href="#">Carrito</a>
             <a class="link" href="#">Vinilos</a>
             <a class="link" href="#">Discos</a>

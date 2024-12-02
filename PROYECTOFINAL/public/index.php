@@ -7,6 +7,9 @@ switch($request){
     case '/':
         require_once __DIR__.'/../src/views/public/welcome.php';
         break;
+    case '/login':
+        require_once __DIR__.'/login.php';
+        break;
     default:
         echo '<!DOCTYPE html>
         <html lang="es">
