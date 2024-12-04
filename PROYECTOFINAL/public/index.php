@@ -10,6 +10,9 @@ switch($request){
     case '/login':
         require_once __DIR__.'/login.php';
         break;
+    case '/products':
+        require_once __DIR__.'/../src/views/admin/products/index.php';
+        break;
     default:
         echo '<!DOCTYPE html>
         <html lang="es">

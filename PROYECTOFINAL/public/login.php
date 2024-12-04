@@ -1,4 +1,5 @@
 <?php 
+    include_once __DIR__.'/../../layouts/header.php';
     require __DIR__.'/../src/helpers/functions.php';
 ?>
 <!DOCTYPE html>
