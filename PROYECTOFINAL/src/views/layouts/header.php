@@ -1,5 +1,10 @@
-<?php require __DIR__.'/../../helpers/functions.php';?>
- 
+<?php 
+require __DIR__.'/../../helpers/functions.php';
+
+session_start(); // Asegurar que la sesión está activa
+$user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,17 +19,21 @@
 <body style="font-family: sans-serif;">
     <header>
         <div class="box logo">
-        <img class="imagen" src="<?= ASSETS_URL ?>/img/vinyl.png" alt="Vinyl">
+            <img class="imagen" src="<?= ASSETS_URL ?>/img/vinyl.png" alt="Vinyl">
         </div>
         <div class="box vdc">
             V.D.C.
         </div>
         <nav class="box nav">
-            <a class="link" href="<?=BASE_URL?>/login">Perfil</a>
-            <a class="link" href="#">Biblioteca</a>
-            <a class="link" href="#">Carrito</a>
-            <a class="link" href="#">Vinilos</a>
-            <a class="link" href="#">Discos</a>
-            <a class="link" href="#">Cassettes</a>
+            <a class="link" href="<?=BASE_URL?>">Inicio</a>
+            <a class="link" href="<?=BASE_URL?>/biblioteca">Biblioteca</a>
+            <?php if ($user): ?>
+                <a class="link" href="<?=BASE_URL?>">Perfil de <?=htmlspecialchars($user['nombre'])?></a>
+                <a class="link" href="<?=BASE_URL?>/logout">Cerrar sesión</a>
+            <?php else: ?>
+                <a class="link" href="<?=BASE_URL?>/login">Iniciar sesión</a>
+            <?php endif; ?>
         </nav>
     </header>
+</body>
+</html>

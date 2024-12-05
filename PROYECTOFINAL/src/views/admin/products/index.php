@@ -16,10 +16,13 @@ $products = index();
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
+                <th>Título</th>
+                <th>Artista</th>
+                <th>Año</th>
+                <th>Duración</th>
+                <th>Formato</th>
                 <th>Género</th>
-                <th>Precio</th>
+                <th>Stock</th>
                 <th>Imagen</th>
                 <th>Acciones</th>
             </tr>
@@ -29,12 +32,16 @@ $products = index();
                 <?php foreach($products as $product): ?>
                     <tr>
                         <td><?=$product['id']?></td>
-                        <td><?=$product['name']?></td>
-                        <td><?=$product['categoria_id']?></td>
+                        <td><?=$product['titulo']?></td>
+                        <td><?=$product['artista']?></td>
+                        <td><?=$product['anio']?></td>
+                        <td><?=$product['duracion']?></td>
+                        <td><?=$product['formato_id']?></td>
                         <td><?=$product['genero_id']?></td>
-                        <td><?=$product['price']?></td>
+                        <td><?=$product['stock']?></td>
                         <td>
-                            <img src="<?=htmlspecialchars($product['src'])?>" alt="<?=htmlspecialchars($product['name'])?>" width="100">
+                            <img src="<?=htmlspecialchars($product['src'])?>" 
+                            alt="<?=htmlspecialchars($product['titulo'])?>" width="100">
                         </td>
                         <td class="actions">
                             <a href="#">Ver</a>
@@ -45,7 +52,7 @@ $products = index();
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="7">No hay productos disponibles.</td>
+                    <td colspan="10">No hay productos disponibles.</td>
                 </tr>
             <?php endif; ?>
         </tbody>

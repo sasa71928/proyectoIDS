@@ -13,6 +13,12 @@ switch($request){
     case '/products':
         require_once __DIR__.'/../src/views/admin/products/index.php';
         break;
+    case '/products/form':
+        require_once __DIR__.'/../src/views/admin/products/form.php';
+        break;
+    case '/logout':
+        require_once __DIR__.'/../src/controllers/LogoutController.php';
+        break;
     default:
         echo '<!DOCTYPE html>
         <html lang="es">
@@ -28,4 +34,3 @@ switch($request){
         </html>';
         break;
 }
-

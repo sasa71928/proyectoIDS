@@ -8,7 +8,7 @@ function index()
     $pdo = getPDO(); // Obtiene la conexión PDO.
 
     try {
-        $sql = "SELECT id, name, categoria_id, genero_id, price, src FROM productos"; 
+        $sql = "SELECT * FROM Producto"; 
         $stmt = $pdo->query($sql);
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $products; 
