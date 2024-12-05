@@ -8,6 +8,9 @@
     --colorsegund: #D5ECD4;
     --colorterc: #A1B0AB;
     --color4t: #929487;
+    --color5t:#BE6E46;
+    --color6t:#373E40;
+    --color7t: #EEF4EE;
 }
 
 .protest-strike-regular {
@@ -46,7 +49,7 @@ body{
 }
 
 header{
-    background:linear-gradient(to right, #C3DAC3 ,#929487);
+    background:linear-gradient(to right, #C3DAC3 ,#373E40);
     font-family: sans-serif;
     position: sticky;
     top: 0;
@@ -113,10 +116,10 @@ form{
     margin: 2% auto;
     max-width: 250px;
     height: 400px;
-    background-color: var(--colorprimario);
+    background-color: var(--color7t);
     border-radius: 2%;
     box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-    border: 2px solid var(--color4t);
+    border: 2px solid var(--color6t);
 }
 
 h2{
@@ -147,7 +150,7 @@ input, textarea, select{
 }
 
 label{
-    color: var(--color4t);
+    color: var(--color6t);
     display: block;
     margin-bottom: 2%;
     text-align: left;
@@ -157,12 +160,12 @@ label{
 
 button{
     width: 10%;
-    background-color: var(--colorterc);
+    background-color: var(--color6t);
     font-size: 100px;
     font-family: "Protest Strike", sans-serif;
     color:var(--colorblanco);
     padding: 1%;
-    border: 2px solid var(--colorsegund);
+    border: 2px solid var(--color6t);
     border-radius: 17px;
     cursor: pointer; 
     font-size: 16px; 
