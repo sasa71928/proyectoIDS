@@ -56,4 +56,31 @@ function get_cached_data($filename) {
     }
     return [];
 }
+
+
+function addProduct($data) {
+    $pdo = getPDO();
+
+    try {
+        $sql = "INSERT INTO Producto (titulo, artista, anio, duracion, formato_id, genero_id, stock, src)
+                VALUES (:titulo, :artista, :anio, :duracion, :formato_id, :genero_id, :stock, :src)";
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->execute([
+            ':titulo' => $data['titulo'],
+            ':artista' => $data['artista'],
+            ':anio' => $data['anio'],
+            ':duracion' => $data['duracion'],
+            ':formato_id' => $data['formato_id'],
+            ':genero_id' => $data['genero_id'],
+            ':stock' => $data['stock'],
+            ':src' => $data['src']
+        ]);
+
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error al insertar el producto: " . $e->getMessage());
+        return false;
+    }
+}
 ?>

@@ -19,6 +19,10 @@ switch($request){
     case '/logout':
         require_once __DIR__.'/../src/controllers/LogoutController.php';
         break;
+    case '/products/add': // Ruta para añadir un producto
+        require_once __DIR__.'/../src/controllers/ProductsController.php';
+        addProductHandler(); // Llama a una función para manejar la lógica de añadir
+        break;
     default:
     require_once __DIR__.'/errores.php';
         break;
