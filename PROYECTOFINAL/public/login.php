@@ -1,7 +1,5 @@
 <?php 
-    include_once __DIR__.'/../../layouts/header.php';
-    require __DIR__.'/../src/helpers/functions.php';
-
+    include_once __DIR__.'/../src/views/layouts/header.php';
     session_start(); // Inicia la sesión para manejar errores y datos de sesión
 ?>
 <!DOCTYPE html>
