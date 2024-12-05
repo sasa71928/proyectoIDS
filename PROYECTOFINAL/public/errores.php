@@ -1,6 +1,6 @@
 <?php 
 include_once __DIR__.'/../src/views/layouts/header.php';
-session_start(); // Asegura que la sesión está activa
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,7 +23,7 @@ session_start(); // Asegura que la sesión está activa
             margin-bottom: 30px;
         }
         .error-container a {
-            text-decoration: var(--colorsecundario);
+            text-decoration: none;
             background-color: #007bff;
             color: #fff;
             padding: 10px 20px;
@@ -31,7 +31,7 @@ session_start(); // Asegura que la sesión está activa
             font-size: 16px;
         }
         .error-container a:hover {
-            background-color: var(--colorsecundario);
+            background-color: #0056b3;
         }
     </style>
 </head>

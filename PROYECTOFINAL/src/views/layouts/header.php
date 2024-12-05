@@ -1,10 +1,10 @@
-<?php 
-require __DIR__.'/../../helpers/functions.php';
+<?php
+require_once __DIR__.'/../../helpers/auth.php'; // Manejo de sesiones y autenticación
+require_once __DIR__.'/../../helpers/functions.php'; // Funciones generales
 
-session_start(); // Asegurar que la sesión está activa
-
-// Verificar si la clave 'user' existe en $_SESSION
+// Obtener información del usuario autenticado
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+$is_admin = $user['es_admin'] ?? false; // Determina si el usuario es administrador
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,13 @@ $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
         <nav class="box nav">
             <a class="link" href="<?=BASE_URL?>">Inicio</a>
             <a class="link" href="<?=BASE_URL?>/biblioteca">Biblioteca</a>
+
             <?php if ($user): ?>
+                <?php if ($is_admin): ?>
+                    <a class="link" href="<?=BASE_URL?>/products">Administrar</a>
+                <?php else: ?>
+                    <a class="link" href="<?=BASE_URL?>/carrito">Carrito</a>
+                <?php endif; ?>
                 <a class="link" href="<?=BASE_URL?>">Perfil de <?=htmlspecialchars($user['nombre'])?></a>
                 <a class="link" href="<?=BASE_URL?>/logout">Cerrar sesión</a>
             <?php else: ?>

@@ -1,10 +1,6 @@
 <?php 
 include_once __DIR__.'/../../layouts/header.php';
 require __DIR__.'/../../../controllers/ProductsController.php';
-session_start();
-
-// Verificar que el usuario sea administrador
-require_admin();
 
 // Obtener los productos del controlador
 $products = index();
