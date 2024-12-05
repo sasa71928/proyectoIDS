@@ -2,8 +2,9 @@
 require __DIR__.'/../../helpers/functions.php';
 
 session_start(); // Asegurar que la sesión está activa
-$user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 
+// Verificar si la clave 'user' existe en $_SESSION
+$user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
