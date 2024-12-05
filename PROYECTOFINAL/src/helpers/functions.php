@@ -57,6 +57,17 @@ function get_cached_data($filename) {
     return [];
 }
 
+function get_authenticated_user() {
+    if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
+        return null;
+    }
+    return $_SESSION['user'];
+}
+
+function is_user_admin($user) {
+    return isset($user['es_admin']) && $user['es_admin'];
+}
+
 
 function addProduct($data) {
     $pdo = getPDO();

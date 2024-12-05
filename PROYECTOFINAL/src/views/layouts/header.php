@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__.'/../../helpers/auth.php'; // Manejo de sesiones y autenticación
-require_once __DIR__.'/../../helpers/functions.php'; // Funciones generales
+require_once __DIR__.'/../../helpers/auth.php';
+require_once __DIR__.'/../../helpers/functions.php';
 
 // Obtener información del usuario autenticado
-$user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
-$is_admin = $user['es_admin'] ?? false; // Determina si el usuario es administrador
+$user = get_authenticated_user();
+$is_admin = is_user_admin($user);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,15 +20,15 @@ $is_admin = $user['es_admin'] ?? false; // Determina si el usuario es administra
         /* Estilo para eliminar la línea de subrayado */
         .logo a, .vdc a {
             text-decoration: none;
-            color: inherit; /* Mantiene el color actual del texto */
-            display: inline-block; /* Para que el área clicable abarque el contenido */
+            color: inherit;
+            display: inline-block;
         }
         .vdc {
             font-size: 24px;
             font-weight: bold;
         }
         .logo a img {
-            display: block; /* Para que el área clicable abarque la imagen */
+            display: block;
         }
     </style>
 </head>
@@ -52,7 +52,7 @@ $is_admin = $user['es_admin'] ?? false; // Determina si el usuario es administra
                 <?php else: ?>
                     <a class="link" href="<?=BASE_URL?>/carrito">Carrito</a>
                 <?php endif; ?>
-                <a class="link" href="<?=BASE_URL?>">Perfil de <?=htmlspecialchars($user['nombre'])?></a>
+                <a class="link" href="<?=BASE_URL?>">Perfil de <?=htmlspecialchars($user['nombre'] ?? 'Usuario')?></a>
                 <a class="link" href="<?=BASE_URL?>/logout">Cerrar sesión</a>
             <?php else: ?>
                 <a class="link" href="<?=BASE_URL?>/login">Iniciar sesión</a>
