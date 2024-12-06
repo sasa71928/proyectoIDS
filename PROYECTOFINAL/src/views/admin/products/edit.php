@@ -62,6 +62,9 @@ $genres = getGenres();
     <label for="stock">Stock:</label>
     <input type="number" id="stock" name="stock" value="<?= htmlspecialchars($product['stock']) ?>" required>
     
+    <label for="precio">Precio:</label>
+    <input type="text" id="precio" name="precio" value="<?= htmlspecialchars($product['precio']) ?>" required>
+    
     <label for="src">URL de la Imagen:</label>
     <input type="text" id="src" name="src" value="<?= htmlspecialchars($product['src']) ?>" required>
     

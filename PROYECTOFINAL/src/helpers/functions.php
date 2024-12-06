@@ -73,8 +73,8 @@ function addProduct($data) {
     $pdo = getPDO();
 
     try {
-        $sql = "INSERT INTO Producto (titulo, artista, anio, duracion, formato_id, genero_id, stock, src)
-                VALUES (:titulo, :artista, :anio, :duracion, :formato_id, :genero_id, :stock, :src)";
+        $sql = "INSERT INTO Producto (titulo, artista, anio, duracion, formato_id, genero_id, stock, precio, src)
+                VALUES (:titulo, :artista, :anio, :duracion, :formato_id, :genero_id, :stock, :precio, :src)";
         $stmt = $pdo->prepare($sql);
 
         $stmt->execute([
@@ -85,6 +85,7 @@ function addProduct($data) {
             ':formato_id' => $data['formato_id'],
             ':genero_id' => $data['genero_id'],
             ':stock' => $data['stock'],
+            ':precio' => $data['precio'],
             ':src' => $data['src']
         ]);
 
@@ -108,6 +109,7 @@ function updateProduct($data) {
                 formato_id = :formato_id,
                 genero_id = :genero_id,
                 stock = :stock,
+                precio = :precio,
                 src = :src
             WHERE id = :id
         ";
@@ -122,6 +124,7 @@ function updateProduct($data) {
             ':formato_id' => $data['formato_id'],
             ':genero_id' => $data['genero_id'],
             ':stock' => $data['stock'],
+            ':precio' => $data['precio'],
             ':src' => $data['src']
         ]);
 

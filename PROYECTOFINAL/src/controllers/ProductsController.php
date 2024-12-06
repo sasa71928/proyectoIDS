@@ -14,6 +14,7 @@ function index($limit, $offset) {
                 Producto.anio, 
                 Producto.duracion, 
                 Producto.stock, 
+                Producto.precio, 
                 Producto.src, 
                 Formato.nombre AS formato_nombre, 
                 Genero.nombre AS genero_nombre
@@ -58,6 +59,7 @@ function addProductHandler() {
             'formato_id' => $_POST['formato_id'],
             'genero_id' => $_POST['genero_id'],
             'stock' => $_POST['stock'],
+            'precio' => $_POST['precio'],
             'src' => $_POST['src']
         ];
 
@@ -110,6 +112,7 @@ function updateProductHandler() {
             'formato_id' => $_POST['formato_id'],
             'genero_id' => $_POST['genero_id'],
             'stock' => $_POST['stock'],
+            'precio' => $_POST['precio'],
             'src' => $_POST['src']
         ];
 
@@ -223,3 +226,31 @@ function addGenre($nombreGenero) {
     }
 }
 
+function getProductsByFormat($formatId, $limit = 5) {
+    $pdo = getPDO();
+
+    try {
+        $sql = "
+            SELECT 
+                Producto.id, 
+                Producto.titulo, 
+                Producto.artista, 
+                Producto.src, 
+                Producto.precio, 
+                Formato.nombre AS formato_nombre
+            FROM Producto
+            LEFT JOIN Formato ON Producto.formato_id = Formato.id
+            WHERE Producto.formato_id = :id
+            LIMIT :limit
+        ";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':formatId', $formatId, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Error al obtener productos por formato: " . $e->getMessage());
+        return [];
+    }
+}

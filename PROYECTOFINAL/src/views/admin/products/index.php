@@ -208,6 +208,9 @@ $genres = getGenres();
                 <label for="stock">Stock:</label>
                 <input type="number" id="stock" name="stock" required>
                 
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio" required>
+                
                 <label for="src">URL de la Imagen:</label>
                 <input type="text" id="src" name="src" placeholder="https://example.com/imagen.jpg" required>
 
@@ -227,6 +230,7 @@ $genres = getGenres();
                 <th>Formato</th>
                 <th>Género</th>
                 <th>Stock</th>
+                <th>Precio</th>
                 <th>Imagen</th>
                 <th>Acciones</th>
             </tr>
@@ -243,6 +247,7 @@ $genres = getGenres();
                         <td><?=htmlspecialchars($product['formato_nombre'])?></td>
                         <td><?=htmlspecialchars($product['genero_nombre'])?></td>
                         <td><?=htmlspecialchars($product['stock'])?></td>
+                        <td><?=htmlspecialchars($product['precio'])?></td>
                         <td>
                             <img src="<?=htmlspecialchars($product['src'])?>" 
                             alt="<?=htmlspecialchars($product['titulo'])?>" width="80">
@@ -260,11 +265,12 @@ $genres = getGenres();
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="10">No hay productos disponibles.</td>
+                    <td colspan="11">No hay productos disponibles.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
     </table>
+
 
         <!-- Controles de paginación -->
         <div class="pagination">
@@ -342,6 +348,37 @@ $genres = getGenres();
         return true;
     }
 
+    function validateForm() {
+    const srcInput = document.getElementById('src');
+    const stockInput = document.getElementById('stock');
+    const priceInput = document.getElementById('precio');
+
+    // Validar URL de imagen
+    const url = srcInput.value;
+    const validExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+    const extension = url.split('.').pop().toLowerCase();
+
+    if (!validExtensions.includes(extension)) {
+        alert('Por favor, ingrese un enlace a una imagen válida (jpg, jpeg, png, gif).');
+        return false;
+    }
+
+    // Validar stock
+    const stock = parseInt(stockInput.value, 10);
+    if (stock <= 0) {
+        alert('El stock debe ser un número mayor a 0.');
+        return false;
+    }
+
+    // Validar precio
+    const price = parseFloat(priceInput.value);
+    if (isNaN(price) || price <= 0) {
+        alert('Por favor, ingrese un precio válido mayor a 0.');
+        return false;
+    }
+
+    return true; // Permitir el envío del formulario si todo es válido
+}
 
 </script>
 
