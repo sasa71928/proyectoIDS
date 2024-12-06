@@ -1,9 +1,9 @@
-<footer style="background-color: #222; color: #fff; padding: 40px 0;">
+<footer style="padding: 40px 0;">
     <div class="container">
         <div class="row">
             <!-- Sobre nosotros -->
             <div class="col-md-4">
-                <h5 style="color: #fff;">Sobre nosotros</h5>
+                <h5>Sobre nosotros</h5>
                 <p>Somos una tienda especializada en vinilos, cassettes y CD's. Ofrecemos una amplia variedad de productos para los amantes de la música.</p>
             </div>
 
