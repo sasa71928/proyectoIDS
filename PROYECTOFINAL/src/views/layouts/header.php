@@ -24,7 +24,7 @@ $is_admin = is_user_admin($user);
             display: inline-block;
         }
         .vdc {
-            font-size: 40px;
+            font-size: 5rem;
             font-weight: bold;
         }
         .logo a img {
