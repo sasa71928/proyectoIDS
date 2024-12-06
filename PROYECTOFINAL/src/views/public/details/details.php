@@ -38,4 +38,70 @@ $genres = getGenres();
     </div>
 </div>
 
+<style>
+    .details-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: var(--colorprimario);
+        padding: 20px;
+    }
+
+    .details-card {
+        background-color: var(--color7t);
+        border: 1px solid var(--colorterc);
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 600px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .product-title {
+        font-size: 2rem;
+        color: var(--colornegro);
+        margin-bottom: 10px;
+    }
+
+    .product-artist,
+    .product-genre,
+    .product-year,
+    .product-duration,
+    .product-format,
+    .product-stock,
+    .product-price {
+        font-size: 1.2rem;
+        color: var(--colorgris);
+        margin: 5px 0;
+    }
+
+    .product-price {
+        color: var(--color5t);
+        font-weight: bold;
+    }
+
+    .back-btn {
+        background-color: var(--color6t);
+        color: var(--color7t);
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .back-btn:hover {
+        background-color: var(--color4t);
+    }
+</style>
+
 <?php include_once __DIR__.'/../../layouts/footer.php'; ?>
