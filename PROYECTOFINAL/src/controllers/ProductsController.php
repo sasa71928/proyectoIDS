@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../helpers/functions.php';
 
-function index() {
+function index($limit, $offset) {
     $pdo = getPDO();
 
     try {
@@ -19,15 +19,34 @@ function index() {
                 Genero.nombre AS genero_nombre
             FROM Producto
             LEFT JOIN Formato ON Producto.formato_id = Formato.id
-            LEFT JOIN Genero ON Producto.genero_id = Genero.id;
+            LEFT JOIN Genero ON Producto.genero_id = Genero.id
+            LIMIT :limit OFFSET :offset;
         ";
-        $stmt = $pdo->query($sql);
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         error_log("Error al consultar la base de datos: " . $e->getMessage());
         return [];
     }
 }
+
+function getTotalProducts() {
+    $pdo = getPDO();
+
+    try {
+        $sql = "SELECT COUNT(*) as total FROM Producto";
+        $stmt = $pdo->query($sql);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
+    } catch (PDOException $e) {
+        error_log("Error al contar productos: " . $e->getMessage());
+        return 0;
+    }
+}
+
 
 function addProductHandler() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -52,7 +71,6 @@ function addProductHandler() {
         header('Location: /products');
     }
 }
-
 
 function getGenres() {
     $pdo = getPDO();
@@ -103,4 +121,3 @@ function updateProductHandler() {
         }
     }
 }
-

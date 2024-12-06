@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once __DIR__.'/../../layouts/header.php';
 require_once __DIR__.'/../../../controllers/ProductsController.php';
 
@@ -8,9 +8,19 @@ require_login();
 // Verificar si el usuario es administrador
 require_admin();
 
-$products = index();
+// Parámetros para paginación
+$page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+$limit = 5;
+$offset = ($page - 1) * $limit;
+
+// Obtener productos y total de páginas
+$products = index($limit, $offset);
+$totalProducts = getTotalProducts();
+$totalPages = ceil($totalProducts / $limit);
+
 $genres = getGenres();
 ?>
+
 
 <style>
     .table-container {
@@ -111,6 +121,31 @@ $genres = getGenres();
         font-size: 28px;
         font-weight: bold;
         cursor: pointer;
+    }
+
+        /* Controles de paginación */
+        .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination .btn {
+        margin: 0 5px;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: var(--colorblanco);
+        background-color: var(--color6t);
+        border-radius: 4px;
+    }
+
+    .pagination .btn.active {
+        background-color: var(--color4t);
+        pointer-events: none;
+    }
+
+    .pagination .btn:hover {
+        opacity: 0.8;
     }
 </style>
 
@@ -213,6 +248,20 @@ $genres = getGenres();
         </tbody>
     </table>
 
+        <!-- Controles de paginación -->
+        <div class="pagination">
+        <?php if ($page > 1): ?>
+            <a href="?page=<?= $page - 1 ?>" class="btn">Anterior</a>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <a href="?page=<?= $i ?>" class="btn <?= $i === $page ? 'active' : '' ?>"><?= $i ?></a>
+        <?php endfor; ?>
+
+        <?php if ($page < $totalPages): ?>
+            <a href="?page=<?= $page + 1 ?>" class="btn">Siguiente</a>
+        <?php endif; ?>
+    </div>
     
 
 </div>
@@ -254,7 +303,7 @@ $genres = getGenres();
             return false;
         }
 
-        return true; // Permitir el envío del formulario si todo es válido
+        return true;
     }
 
 </script>
