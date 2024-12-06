@@ -24,12 +24,14 @@ $is_admin = is_user_admin($user);
             display: inline-block;
         }
         .vdc {
-            font-size: 24px;
+            font-size: 40px;
             font-weight: bold;
         }
         .logo a img {
             display: block;
         }
+        
+        z-index:200;
     </style>
 </head>
 <body style="font-family: sans-serif;">
