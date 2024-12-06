@@ -77,7 +77,7 @@ $cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: var(--colornegro);
         margin-bottom: 20px;
     }
@@ -91,8 +91,9 @@ $cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
     }
 
     .product-card {
-        background-color: var(--colorblanco);
-        border: 1px solid var(--colorterc);
+        background-color: var(--color7t);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        border: 2px solid var(--color6t);
         border-radius: 10px;
         padding: 20px;
         text-align: center;
@@ -133,7 +134,7 @@ $cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
 
     .more-btn {
         background-color: var(--color6t);
-        color: var(--colorblanco);
+        color: var(--color7t);
         border: none;
         padding: 10px 20px;
         font-size: 1rem;
