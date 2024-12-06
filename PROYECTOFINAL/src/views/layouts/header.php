@@ -31,7 +31,7 @@ $is_admin = is_user_admin($user);
             display: block;
         }
         
-        z-index:200;
+        z-index:1000;
     </style>
 </head>
 <body style="font-family: sans-serif;">
