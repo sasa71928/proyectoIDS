@@ -42,18 +42,18 @@ $genres = getGenres();
     }
 
     .styled-table thead tr {
-        background-color: var(--colornegro);
-        color: var(--colorblanco);
+        background-color: var(--color6t);
+        color: var(--color7t);
         font-weight: bold;
     }
 
     .styled-table th, .styled-table td {
         padding: 12px 15px;
-        border: 1px solid var(--colornegro);
+        border: 1px solid var(--color6t);
     }
 
     .styled-table tbody tr:nth-of-type(even) {
-        background-color: var(--colorsecundario);
+        background-color: var(--colorsegun);
     }
 
     .styled-table tbody tr:nth-of-type(odd) {
@@ -82,12 +82,12 @@ $genres = getGenres();
 
     .btn-edit {
         background-color: var(--color5t);
-        color: var(--colorblanco);
+        color: var(--color7t);
     }
 
     .btn-delete {
         background-color: var(--color6t);
-        color: var(--colorblanco);
+        color: var(--color7t);
     }
 
     .btn:hover {
