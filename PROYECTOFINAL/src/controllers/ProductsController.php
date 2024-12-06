@@ -66,3 +66,41 @@ function getGenres() {
         return [];
     }
 }
+
+function getProductById($id) {
+    $pdo = getPDO();
+
+    try {
+        $sql = "SELECT * FROM Producto WHERE id = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Error al obtener producto: " . $e->getMessage());
+        return null;
+    }
+}
+
+function updateProductHandler() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $data = [
+            'id' => $_POST['id'],
+            'titulo' => $_POST['titulo'],
+            'artista' => $_POST['artista'],
+            'anio' => $_POST['anio'],
+            'duracion' => $_POST['duracion'],
+            'formato_id' => $_POST['formato_id'],
+            'genero_id' => $_POST['genero_id'],
+            'stock' => $_POST['stock'],
+            'src' => $_POST['src']
+        ];
+
+        if (updateProduct($data)) {
+            header('Location: /products'); // Redirige a la lista de productos
+            exit;
+        } else {
+            echo '<script>alert("Error al actualizar el producto. Por favor, inténtalo de nuevo.");</script>';
+        }
+    }
+}
+

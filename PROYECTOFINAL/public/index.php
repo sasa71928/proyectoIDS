@@ -23,6 +23,13 @@ switch($request){
         require_once __DIR__.'/../src/controllers/ProductsController.php';
         addProductHandler(); // Llama a una función para manejar la lógica de añadir
         break;
+    case '/products/edit':
+        require_once __DIR__.'/../src/views/admin/products/edit.php';
+        break;
+    case '/products/update':
+        require_once __DIR__.'/../src/controllers/ProductsController.php';
+        updateProductHandler();
+        break;                
     default:
     require_once __DIR__.'/errores.php';
         break;

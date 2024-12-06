@@ -94,4 +94,40 @@ function addProduct($data) {
         return false;
     }
 }
-?>
+
+function updateProduct($data) {
+    $pdo = getPDO();
+
+    try {
+        $sql = "
+            UPDATE Producto
+            SET titulo = :titulo,
+                artista = :artista,
+                anio = :anio,
+                duracion = :duracion,
+                formato_id = :formato_id,
+                genero_id = :genero_id,
+                stock = :stock,
+                src = :src
+            WHERE id = :id
+        ";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':id' => $data['id'],
+            ':titulo' => $data['titulo'],
+            ':artista' => $data['artista'],
+            ':anio' => $data['anio'],
+            ':duracion' => $data['duracion'],
+            ':formato_id' => $data['formato_id'],
+            ':genero_id' => $data['genero_id'],
+            ':stock' => $data['stock'],
+            ':src' => $data['src']
+        ]);
+
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error al actualizar producto: " . $e->getMessage());
+        return false;
+    }
+}
