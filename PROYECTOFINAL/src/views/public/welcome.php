@@ -22,10 +22,11 @@ $cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
                     <p class="product-title"><?= htmlspecialchars($product['titulo']) ?></p>
                     <p class="product-artist"><?= htmlspecialchars($product['artista']) ?></p>
                     <p class="product-price">$<?= htmlspecialchars($product['precio']) ?></p>
+                    <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/details.php?id=<?= htmlspecialchars($product['id']) ?>'">Más</button>
                 </div>
             <?php endforeach; ?>
         </div>
-        <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/products?format=2'">Más</button>
+        <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/products?format=2'">Más Vinilos</button>
     </div>
 
     <div class="section">
@@ -37,10 +38,11 @@ $cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
                     <p class="product-title"><?= htmlspecialchars($product['titulo']) ?></p>
                     <p class="product-artist"><?= htmlspecialchars($product['artista']) ?></p>
                     <p class="product-price">$<?= htmlspecialchars($product['precio']) ?></p>
+                    <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/details.php?id=<?= htmlspecialchars($product['id']) ?>'">Más</button>
                 </div>
             <?php endforeach; ?>
         </div>
-        <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/products?format=1'">Más</button>
+        <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/products?format=1'">Más Discos</button>
     </div>
 
     <div class="section">
@@ -52,12 +54,14 @@ $cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
                     <p class="product-title"><?= htmlspecialchars($product['titulo']) ?></p>
                     <p class="product-artist"><?= htmlspecialchars($product['artista']) ?></p>
                     <p class="product-price">$<?= htmlspecialchars($product['precio']) ?></p>
+                    <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/details.php?id=<?= htmlspecialchars($product['id']) ?>'">Más</button>
                 </div>
             <?php endforeach; ?>
         </div>
-        <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/products?format=3'">Más</button>
+        <button class="more-btn" onclick="window.location.href='<?= BASE_URL ?>/products?format=3'">Más Cassettes</button>
     </div>
 </main>
+
 
 <style>
     body {
