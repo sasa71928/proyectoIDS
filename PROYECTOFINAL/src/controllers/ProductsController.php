@@ -236,7 +236,7 @@ function addGenre($nombreGenero) {
     }
 }
 
-function getProductsByFormat($formatId, $limit = 5) {
+function getProductsByFormat($formatId, $limit = 6) {
     $pdo = getPDO();
 
     try {
