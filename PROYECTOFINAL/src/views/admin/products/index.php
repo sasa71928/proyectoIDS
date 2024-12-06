@@ -191,9 +191,9 @@ $genres = getGenres();
                 
                 <label for="formato_id">Formato:</label>
                 <select id="formato_id" name="formato_id" required>
-                    <option value="1">CD</option>
+                    <option value="3">CD</option>
                     <option value="2">Vinilo</option>
-                    <option value="3">Cassette</option>
+                    <option value="1">Cassette</option>
                 </select>
                 
                 <label for="genero_id">Género:</label>

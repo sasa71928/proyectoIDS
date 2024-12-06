@@ -3,9 +3,9 @@ include_once __DIR__.'/../layouts/header.php';
 require_once __DIR__.'/../../controllers/ProductsController.php';
 
 // Obtener productos por formato
-$discs = getProductsByFormat(1); // 1: ID de formato "Discos"
+$discs = getProductsByFormat(3); // 1: ID de formato "Discos"
 $vinyls = getProductsByFormat(2); // 2: ID de formato "Vinilos"
-$cassettes = getProductsByFormat(3); // 3: ID de formato "Cassettes"
+$cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
 ?>
 
 <main>

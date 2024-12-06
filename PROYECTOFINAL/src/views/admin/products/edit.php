@@ -45,9 +45,9 @@ $genres = getGenres();
     
     <label for="formato_id">Formato:</label>
     <select id="formato_id" name="formato_id" required>
-        <option value="1" <?= $product['formato_id'] == 1 ? 'selected' : '' ?>>CD</option>
+        <option value="3" <?= $product['formato_id'] == 3 ? 'selected' : '' ?>>CD</option>
         <option value="2" <?= $product['formato_id'] == 2 ? 'selected' : '' ?>>Vinilo</option>
-        <option value="3" <?= $product['formato_id'] == 3 ? 'selected' : '' ?>>Cassette</option>
+        <option value="1" <?= $product['formato_id'] == 1 ? 'selected' : '' ?>>Cassette</option>
     </select>
     
     <label for="genero_id">Género:</label>
