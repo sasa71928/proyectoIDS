@@ -30,8 +30,10 @@ $is_admin = is_user_admin($user);
         .logo a img {
             display: block;
         }
-        
-        z-index:1000;
+
+        header{
+            z-index:1000;
+        }
     </style>
 </head>
 <body style="font-family: sans-serif;">
