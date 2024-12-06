@@ -68,7 +68,7 @@ $cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
     }
 
     .product-card {
-        background-color: var(--colorsecundario);
+        background-color: var(--colorblanco);
         padding: 10px;
         border: 1px solid var(--colorterc);
         border-radius: 5px;
