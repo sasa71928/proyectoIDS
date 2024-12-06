@@ -59,8 +59,8 @@ $genres = getGenres();
     }
 
     .product-image {
-        width: 100%;
-        height: auto;
+        width: 350px;
+        height: 350px;
         border-radius: 10px;
         margin-bottom: 20px;
     }
