@@ -121,3 +121,31 @@ function updateProductHandler() {
         }
     }
 }
+
+function deleteProductById($id) {
+    $pdo = getPDO();
+
+    try {
+        $sql = "DELETE FROM Producto WHERE id = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->rowCount() > 0;
+    } catch (PDOException $e) {
+        error_log("Error al eliminar producto: " . $e->getMessage());
+        return false;
+    }
+}
+
+function deleteProductHandler() {
+    if (isset($_GET['id'])) {
+        $id = intval($_GET['id']);
+        if (deleteProductById($id)) {
+            header('Location: /products'); // Redirige al listado después de eliminar
+            exit;
+        } else {
+            echo '<script>alert("Error al eliminar el producto.");</script>';
+        }
+    } else {
+        echo '<script>alert("ID de producto no especificado.");</script>';
+    }
+}

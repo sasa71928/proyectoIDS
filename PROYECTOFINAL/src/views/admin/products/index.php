@@ -235,8 +235,10 @@ $genres = getGenres();
                             <a href="<?=BASE_URL?>/products/edit?id=<?=htmlspecialchars($product['id'])?>" class="btn btn-edit">Editar</a>
 
                             <a href="<?=BASE_URL?>/products/delete?id=<?=htmlspecialchars($product['id'])?>" 
-                               class="btn btn-delete" 
-                               onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">Eliminar</a>
+                            class="btn btn-delete" 
+                            onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
+                            Eliminar
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

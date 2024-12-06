@@ -19,9 +19,9 @@ switch($request){
     case '/logout':
         require_once __DIR__.'/../src/controllers/LogoutController.php';
         break;
-    case '/products/add': // Ruta para añadir un producto
+    case '/products/add': 
         require_once __DIR__.'/../src/controllers/ProductsController.php';
-        addProductHandler(); // Llama a una función para manejar la lógica de añadir
+        addProductHandler(); 
         break;
     case '/products/edit':
         require_once __DIR__.'/../src/views/admin/products/edit.php';
@@ -29,7 +29,11 @@ switch($request){
     case '/products/update':
         require_once __DIR__.'/../src/controllers/ProductsController.php';
         updateProductHandler();
-        break;                
+        break;
+    case '/products/delete':
+        require_once __DIR__.'/../src/controllers/ProductsController.php';
+        deleteProductHandler();
+        break;       
     default:
     require_once __DIR__.'/errores.php';
         break;
