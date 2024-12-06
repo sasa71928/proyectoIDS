@@ -108,7 +108,7 @@ $cassettes = getProductsByFormat(1); // 3: ID de formato "Cassettes"
 
     .product-card img {
         width: 100%;
-        height: auto;
+        height: 187.2px;
         border-radius: 10px;
         margin-bottom: 10px;
     }
