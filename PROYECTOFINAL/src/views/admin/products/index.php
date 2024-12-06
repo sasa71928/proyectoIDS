@@ -10,7 +10,7 @@ require_admin();
 
 // Parámetros para paginación
 $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
-$limit = 5;
+$limit = 10;
 $offset = ($page - 1) * $limit;
 
 // Obtener productos y total de páginas
@@ -303,7 +303,7 @@ $genres = getGenres();
             return false;
         }
 
-        return true;
+        return true; // Permitir el envío del formulario si todo es válido
     }
 
 </script>
