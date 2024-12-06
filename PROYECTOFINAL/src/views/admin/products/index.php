@@ -9,6 +9,7 @@ require_login();
 require_admin();
 
 $products = index();
+$genres = getGenres();
 ?>
 
 <style>
@@ -146,11 +147,13 @@ $products = index();
                 
                 <label for="genero_id">Género:</label>
                 <select id="genero_id" name="genero_id" required>
-                    <option value="1">Rock</option>
-                    <option value="2">Pop</option>
-                    <option value="3">Jazz</option>
+                    <?php foreach ($genres as $genre): ?>
+                        <option value="<?= htmlspecialchars($genre['id']) ?>">
+                            <?= htmlspecialchars($genre['nombre']) ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
-                
+
                 <label for="stock">Stock:</label>
                 <input type="number" id="stock" name="stock" required>
                 

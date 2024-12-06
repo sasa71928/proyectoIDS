@@ -52,3 +52,17 @@ function addProductHandler() {
         header('Location: /products');
     }
 }
+
+
+function getGenres() {
+    $pdo = getPDO();
+
+    try {
+        $sql = "SELECT id, nombre FROM Genero";
+        $stmt = $pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Error al consultar géneros: " . $e->getMessage());
+        return [];
+    }
+}
