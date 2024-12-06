@@ -49,7 +49,7 @@ $genres = getGenres();
     }
 
     .details-card {
-        background-color: var(--colorblanco);
+        background-color: var(--color7t);
         border: 1px solid var(--colorterc);
         border-radius: 10px;
         padding: 20px;
@@ -90,7 +90,7 @@ $genres = getGenres();
 
     .back-btn {
         background-color: var(--color6t);
-        color: var(--colorblanco);
+        color: var(--color7t);
         border: none;
         padding: 10px 20px;
         font-size: 1rem;
