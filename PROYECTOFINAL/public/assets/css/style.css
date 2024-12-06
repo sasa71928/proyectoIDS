@@ -115,15 +115,30 @@ label {
 }
 
 button {
-    width: 10%;
+    display: inline-block;
     background-color: var(--color6t);
-    color: var(--colornegro);
-    padding: 1%;
-    border: 2px solid var(--color6t);
-    border-radius: 17px;
+    color: var(--colorblanco);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin: 2% auto;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px; /* Espaciado superior */
+}
+
+button:hover {
+    background-color: var(--color4t);
+    transform: translateY(-3px); /* Efecto de hover */
+}
+
+button:active {
+    transform: scale(0.95); /* Efecto de clic */
+}
+
+.product-card button {
+    width: auto; /* Ajustar ancho automáticamente al contenido */
+    margin: 0 auto; /* Centrar botón en la tarjeta */
 }
 
 button:active {
@@ -173,3 +188,4 @@ form:hover {
     border: 10px solid var(--colorsecundario);
     border-style: groove;
 }
+
