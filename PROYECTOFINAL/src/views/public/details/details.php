@@ -14,7 +14,7 @@ if (!$product_id) {
 $product = getProductById($product_id);
 
 if (!$product) {
-    echo "<h2>Error: Producto no encontrado.</h2>";
+    header('Location: /public/errores.php'); // Reemplaza con la URL de tu página de destino.
     exit;
 }
 
