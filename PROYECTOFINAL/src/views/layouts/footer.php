@@ -4,7 +4,7 @@
             <!-- Sobre nosotros -->
             <div class="col-md-4">
                 <h5>Sobre nosotros</h5>
-                <p>Somos una tienda especializada en vinilos, discos y CD's. Ofrecemos una amplia variedad de productos para los amantes de la música.</p>
+                <p>Somos una tienda especializada en vinilos, cassettes y CD's. Ofrecemos una amplia variedad de productos para los amantes de la música.</p>
             </div>
 
             <!-- Contacto -->
