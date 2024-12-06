@@ -91,7 +91,16 @@ function getProductById($id) {
     $pdo = getPDO();
 
     try {
-        $sql = "SELECT * FROM Producto WHERE id = :id";
+        $sql = "
+            SELECT 
+                Producto.*, 
+                Formato.nombre AS formato_nombre, 
+                Genero.nombre AS genero_nombre
+            FROM Producto
+            LEFT JOIN Formato ON Producto.formato_id = Formato.id
+            LEFT JOIN Genero ON Producto.genero_id = Genero.id
+            WHERE Producto.id = :id
+        ";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -100,6 +109,7 @@ function getProductById($id) {
         return null;
     }
 }
+
 
 function updateProductHandler() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -240,7 +250,7 @@ function getProductsByFormat($formatId, $limit = 5) {
                 Formato.nombre AS formato_nombre
             FROM Producto
             LEFT JOIN Formato ON Producto.formato_id = Formato.id
-            WHERE Producto.formato_id = :id
+            WHERE Producto.formato_id = :formatId
             LIMIT :limit
         ";
         $stmt = $pdo->prepare($sql);

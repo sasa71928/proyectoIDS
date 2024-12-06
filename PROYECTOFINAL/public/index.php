@@ -37,6 +37,9 @@ switch($request){
     case '/genres/add':
         require_once __DIR__.'/../src/controllers/ProductsController.php';
         addGenreHandler();
+        break;
+    case '/details':
+        include __DIR__.'/src/views/public/details/details.php';
         break;   
     default:
     require_once __DIR__.'/errores.php';
