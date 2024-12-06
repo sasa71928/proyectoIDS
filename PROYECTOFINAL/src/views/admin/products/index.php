@@ -124,7 +124,7 @@ $products = index();
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Añadir Producto</h2>
-            <form action="<?=BASE_URL?>/products/add" method="POST" onsubmit="return validateImageUrl();">
+            <form action="<?=BASE_URL?>/products/add" method="POST" onsubmit="return validateForm();">
                 <label for="titulo">Título:</label>
                 <input type="text" id="titulo" name="titulo" required>
                 
@@ -194,7 +194,6 @@ $products = index();
                             alt="<?=htmlspecialchars($product['titulo'])?>" width="80">
                         </td>
                         <td class="actions">
-                            <a href="<?=BASE_URL?>/products/view?id=<?=htmlspecialchars($product['id'])?>" class="btn btn-view">Ver</a>
                             <a href="<?=BASE_URL?>/products/form?id=<?=htmlspecialchars($product['id'])?>" class="btn btn-edit">Editar</a>
                             <a href="<?=BASE_URL?>/products/delete?id=<?=htmlspecialchars($product['id'])?>" 
                                class="btn btn-delete" 
@@ -209,26 +208,32 @@ $products = index();
             <?php endif; ?>
         </tbody>
     </table>
+
+    
+
 </div>
 
 <script>
-    function openModal() {
-        document.getElementById('addProductModal').style.display = 'block';
-    }
-
-    function closeModal() {
-        document.getElementById('addProductModal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById('addProductModal');
-        if (event.target === modal) {
-            closeModal();
+        function openModal() {
+            document.getElementById('addProductModal').style.display = 'block';
         }
-    };
 
-    function validateImageUrl() {
+        function closeModal() {
+            document.getElementById('addProductModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('addProductModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        function validateForm() {
         const srcInput = document.getElementById('src');
+        const stockInput = document.getElementById('stock');
+
+        // Validar URL de imagen
         const url = srcInput.value;
         const validExtensions = ['jpg', 'jpeg', 'png', 'gif'];
         const extension = url.split('.').pop().toLowerCase();
@@ -237,8 +242,17 @@ $products = index();
             alert('Por favor, ingrese un enlace a una imagen válida (jpg, jpeg, png, gif).');
             return false;
         }
-        return true;
+
+        // Validar stock
+        const stock = parseInt(stockInput.value, 10);
+        if (stock <= 0) {
+            alert('El stock debe ser un número mayor a 0.');
+            return false;
+        }
+
+        return true; // Permitir el envío del formulario si todo es válido
     }
+
 </script>
 
 <?php include_once __DIR__.'/../../layouts/footer.php'; ?>
