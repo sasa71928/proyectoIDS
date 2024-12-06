@@ -39,8 +39,12 @@ switch($request){
         addGenreHandler();
         break;
     case '/details':
-        include __DIR__.'/src/views/public/details/details.php';
-        break;   
+        include __DIR__.'/../src/views/public/details/details.php';
+        break; 
+    case '/biblioteca':
+        include __DIR__.'/../src/views/public/biblioteca.php';
+        addGenreHandler();
+        break;  
     default:
     require_once __DIR__.'/errores.php';
         break;
