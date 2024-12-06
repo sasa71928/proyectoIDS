@@ -153,7 +153,23 @@ $genres = getGenres();
     <div class="table-container-header">
         <h1 class="h1-table">Listado de Productos</h1>
         <button class="add-button" onclick="openModal()">Añadir Producto</button>
-    </div>
+
+        <!-- Botón para añadir género -->
+        <button class="add-button" onclick="openGenreModal()">Añadir Género</button>
+
+        <!-- Modal para añadir género -->
+        <div id="addGenreModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeGenreModal()">&times;</span>
+                <h2>Añadir Género</h2>
+                <form action="<?=BASE_URL?>/genres/add" method="POST" onsubmit="return validateGenreForm();">
+                    <label for="nombreGenero">Nombre del Género:</label>
+                    <input type="text" id="nombreGenero" name="nombreGenero" required>
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+
 
     <!-- Modal -->
     <div id="addProductModal" class="modal">
@@ -307,6 +323,25 @@ $genres = getGenres();
 
         return true; // Permitir el envío del formulario si todo es válido
     }
+
+    function openGenreModal() {
+    document.getElementById('addGenreModal').style.display = 'block';
+        }
+
+    function closeGenreModal() {
+        document.getElementById('addGenreModal').style.display = 'none';
+      }
+
+    function validateGenreForm() {
+        const genreInput = document.getElementById('nombreGenero').value.trim();
+
+        if (genreInput === '') {
+            alert('El nombre del género no puede estar vacío.');
+            return false;
+        }
+        return true;
+    }
+
 
 </script>
 

@@ -33,7 +33,11 @@ switch($request){
     case '/products/delete':
         require_once __DIR__.'/../src/controllers/ProductsController.php';
         deleteProductHandler();
-        break;       
+        break;
+    case '/genres/add':
+        require_once __DIR__.'/../src/controllers/ProductsController.php';
+        addGenreHandler();
+        break;   
     default:
     require_once __DIR__.'/errores.php';
         break;

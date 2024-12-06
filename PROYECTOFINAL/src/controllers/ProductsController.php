@@ -149,3 +149,77 @@ function deleteProductHandler() {
         echo '<script>alert("ID de producto no especificado.");</script>';
     }
 }
+
+function addGenreHandler() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $nombreGenero = trim($_POST['nombreGenero']);
+
+        // Validar que solo contenga letras y espacios
+        if (!preg_match('/^[a-zA-Z\s]+$/', $nombreGenero)) {
+            echo "<script>
+                    alert('El nombre del género solo puede contener letras y espacios.');
+                    window.location.href = '/products';
+                  </script>";
+            exit;
+        }
+
+        $pdo = getPDO();
+
+        try {
+            // Verificar si ya existe
+            $stmt = $pdo->prepare("SELECT COUNT(*) FROM Genero WHERE nombre = :nombre");
+            $stmt->execute([':nombre' => $nombreGenero]);
+            if ($stmt->fetchColumn() > 0) {
+                echo "<script>
+                        alert('El género ya existe. Por favor, introduce un género diferente.');
+                        window.location.href = '/products';
+                      </script>";
+                exit;
+            }
+
+            // Insertar género
+            $stmt = $pdo->prepare("INSERT INTO Genero (nombre) VALUES (:nombre)");
+            $stmt->execute([':nombre' => $nombreGenero]);
+
+            echo "<script>
+                    alert('Género añadido con éxito.');
+                    window.location.href = '/products';
+                  </script>";
+            exit;
+        } catch (PDOException $e) {
+            error_log("Error al añadir género: " . $e->getMessage());
+            echo "<script>
+                    alert('Ocurrió un error al añadir el género.');
+                    window.location.href = '/products';
+                  </script>";
+            exit;
+        }
+    }
+}
+
+function isGenreDuplicate($nombreGenero) {
+    $pdo = getPDO();
+    try {
+        $sql = "SELECT COUNT(*) FROM Genero WHERE nombre = :nombre";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':nombre' => $nombreGenero]);
+        return $stmt->fetchColumn() > 0;
+    } catch (PDOException $e) {
+        error_log("Error al comprobar género duplicado: " . $e->getMessage());
+        return false;
+    }
+}
+
+function addGenre($nombreGenero) {
+    $pdo = getPDO();
+    try {
+        $sql = "INSERT INTO Genero (nombre) VALUES (:nombre)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':nombre' => $nombreGenero]);
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error al añadir género: " . $e->getMessage());
+        return false;
+    }
+}
+
